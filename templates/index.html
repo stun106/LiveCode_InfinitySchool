@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Via Cep - Busque seu Cep</title>
+</head>
+<body>
+    <h1>Via Cep</h1>
+    <form action="{{url_for('index')}}" method="post">
+        <input type="text" name="cep" placeholder="informe um cep valido">
+        <input type="submit" value="enviar">
+    </form>
+    <p>{{aviso.erro}}</p>
+</body>
+</html>
