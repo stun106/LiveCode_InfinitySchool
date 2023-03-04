@@ -13,5 +13,13 @@
         <input type="submit" value="enviar">
     </form>
     <p>{{aviso.erro}}</p>
+    {% if resp %}
+        <h1>CEP LOCALIZADO</h1>
+        <h2>Cep:</h2><p>{{ resp.cep }}</p>
+        <h2>Logradouro:</h2><p>{{ resp.logradouro }}</p>
+        <h2>Bairro:</h2><p>{{ resp.bairro }}</p>
+        <h2>Localidade:</h2><p>{{ resp.localidade }}</p>
+    {% endif %}
+
 </body>
 </html>
