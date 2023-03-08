@@ -1,25 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/style.css">
     <title>Via Cep - Busque seu Cep</title>
 </head>
-<body>
-    <h1>Via Cep</h1>
-    <form action="{{url_for('index')}}" method="post">
-        <input type="text" name="cep" placeholder="informe um cep valido">
-        <input type="submit" value="enviar">
-    </form>
-    <p>{{aviso.erro}}</p>
-    {% if resp %}
-        <h1>CEP LOCALIZADO</h1>
-        <h2>Cep:</h2><p>{{ resp.cep }}</p>
-        <h2>Logradouro:</h2><p>{{ resp.logradouro }}</p>
-        <h2>Bairro:</h2><p>{{ resp.bairro }}</p>
-        <h2>Localidade:</h2><p>{{ resp.localidade }}</p>
-    {% endif %}
 
+<body>
+<header>
+ <h1 class="titulo">ViaCep</h1>
+ <p class="sub-t">Consulte Ceps de todo o Brasil</pc>
+</header>
+<main>
+ <form action="{{url_for('index')}}" method="post">
+  <input type="text" name="cep" placeholder="informe um cep valido">
+  <button type="submit" id="btn" type="submit">Buscar</button>
+ </form>
+{% if aviso %}
+ <div class="alert-danger">
+  <p class="aviso">{{aviso.erro}}</p>
+ </div>
+{% elif resp %}
+ <h1 class="resp-titulo">CEP LOCALIZADO</h1>
+  <h2 class="sub-titulo">Cep:</h2>
+   <p class="resp">{{ resp.cep }}</p>
+    <h2 class="sub-titulo">Logradouro:</h2>
+     <p class="resp">{{ resp.logradouro }}</p>
+    <h2 class="resp">Bairro:</h2>
+   <p class="resp">{{ resp.bairro }}</p>
+  <h2 class="sub-titulo">Localidade:</h2>
+<p class="resp">{{ resp.localidade }}</p>
+{% endif %}
+</main>
 </body>
 </html>
